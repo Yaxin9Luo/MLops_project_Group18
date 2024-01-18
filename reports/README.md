@@ -533,7 +533,7 @@ We employed the Compute Engine to carry out pivotal operations in our recommenda
 >
 > Answer:
 
-![buckets](reports/figures/q19_1.png)
+![buckets](figures/q19_1.png)
 
 
 ### Question 20
@@ -543,7 +543,7 @@ We employed the Compute Engine to carry out pivotal operations in our recommenda
 >
 > Answer:
 
-![buckets](reports/figures/q20_1.png)
+![buckets](figures/q20_1.png)
 
 ### Question 21
 
@@ -551,7 +551,7 @@ We employed the Compute Engine to carry out pivotal operations in our recommenda
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 
-![buckets](reports/figures/q21_1.png)
+![buckets](figures/q21_1.png)
 
 
 ### Question 22
