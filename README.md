@@ -1,4 +1,4 @@
-This repository contains the project work carried out by group 5 in the MLOps course taught at DTU ([course website](https://skaftenicki.github.io/dtu_mlops/)). Group 18 consists of: Sitong Chen, Yaxin Luo, Xiaofu Chen. 
+This repository contains the project work carried out by Group 18 in the MLOps course taught at DTU ([course website](https://skaftenicki.github.io/dtu_mlops/)). Group 18 consists of: Sitong Chen, Yaxin Luo, Xiaofu Chen. 
 
 1. **Overall goal:**
 The project is a Movie Recommendation System based on the Latent Factor Model (LFM) algorithm. This system is designed to provide movie recommendations to users.
