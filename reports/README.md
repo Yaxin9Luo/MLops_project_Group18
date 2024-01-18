@@ -103,20 +103,18 @@ end of the project.
 ### Question 1
 > **Enter the group number you signed up on <learn.inside.dtu.dk>**
 >
-> Answer:
+> Answer: Group 18
 
---- question 1 fill here ---
 
 ### Question 2
 > **Enter the study number for each member in the group**
 >
 > Example:
->
-> *s215161, s230027, s230029*
+> *sXXXXXX, sXXXXXX, sXXXXXX*
+> 
 >
 > Answer:
-
---- question 2 fill here ---
+> *s215161, s230027, s230029*
 
 ### Question 3
 > **What framework did you choose to work with and did it help you complete the project?**
@@ -127,9 +125,19 @@ end of the project.
 > *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
 > *package to do ... and ... in our project*.
 >
-> Answer:
+> Answer:Our team chose to implement a Latent Factor Model (LFM) using the TensorFlow framework to build a movie recommendation system.
 
---- question 3 fill here ---
+**Key Contributions of TensorFlow:**
+
+1. **Keras API:** TensorFlow's Keras API facilitated the seamless definition and construction of the Singular Value Decomposition (SVD) model.
+
+2. **Embedding Layers:** TensorFlow provided efficient embedding layers, simplifying the modeling of entities such as users and movies. These layers enhanced the ease and efficiency of constructing the model.
+
+3. **Regularization:** The need to add custom regularization terms to the loss function was conveniently addressed using TensorFlow functions. TensorFlow's rich set of operations and functions allowed for the easy integration of custom regularization logic into the model's loss function.
+
+In summary, TensorFlow, with its Keras API, efficient embedding layers, and flexibility in handling custom regularization, played a pivotal role in the successful completion of our movie recommendation system project.
+
+
 
 ## Coding environment
 
@@ -146,9 +154,22 @@ end of the project.
 > *We used ... for managing our dependencies. The list of dependencies was auto-generated using ... . To get a*
 > *complete copy of our development environment, one would have to run the following commands*
 >
+
 > Answer:
 
---- question 4 fill here ---
+We used the `setuptools` and `setuptools-scm` for managing dependencies in our project. The list of dependencies is auto-generated using the `requirements.txt` file. To get an exact copy of our development environment, a new team member would have to run the following commands:
+
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+    ```
+2. create a virtual environment (python version >=3.9.11)
+3. Install the project with development dependencies:
+    ```bash
+   pip install -e .[dev]
+    ```
+
+
 
 ### Question 5
 
@@ -163,7 +184,8 @@ end of the project.
 > *experiments.*
 > Answer:
 
---- question 5 fill here ---
+From the cookiecutter template we have filled out the **data**, **models**,**lfm** and **tests** folder. We have removed the **doc** and **notebook** folders
+because we did not use any **Mkdocs** in our project. We have added an **config**,**drift**, **logs**, **scripts** and **wandb** containing configure experiments, drifting data py files,log recording, and train & test model and loss & Mae recoding respectively  for running ourexperiments.
 
 ### Question 6
 
@@ -174,7 +196,14 @@ end of the project.
 >
 > Answer:
 
---- question 6 fill here ---
+We utilized the `ruff` package in Python to enforce code quality and formatting rules, ensuring our code adheres to PEP 8.
+
+- **Readability and Maintainability:** Consistent code style enhances readability, making it easier for our team members to understand and maintain the codebase.
+
+- **Error Reduction:** Adhering to coding standards helps detect potential errors early, reducing the likelihood of introducing errors due to formatting issues.
+
+- **Code Robustness:** Code quality rules enforce best practices, ensuring adherence to industry-standard conventions. This promotes the use of efficient and secure coding patterns, contributing to the overall robustness of the project.
+
 
 ## Version control
 
@@ -193,7 +222,8 @@ end of the project.
 >
 > Answer:
 
---- question 7 fill here ---
+We implemented 2 tests, primarily focusing on model and model training which are critical parts of our application. We also aimed to test data for null values and outliers. While successful locally, CI on GitHub encountered path errors, leading to the deletion of the test.
+
 
 ### Question 8
 
@@ -208,7 +238,12 @@ end of the project.
 >
 > Answer:
 
---- question 8 fill here ---
+The total code coverage of the code is 35%, which includes all our source code. We are far from 100% coverage of our code. Code coverage measures the percentage of code executed during testing. While higher coverage is generally desirable, indicating that tests cover more code portions, it doesn't guarantee the absence of all possible errors. Here are some reasons:
+
+1. **Potential Errors:** Achieving 100% coverage doesn't mean all possible input combinations, edge cases, and real-world scenarios have been tested. Unexplored paths may still exist, leading to potential errors.
+
+2. **False Sense of Security:** High code coverage can create a false sense of security. Projects are dynamic, and the introduction of new data may lead to errors. Dependence solely on high coverage can be misleading.
+
 
 ### Question 9
 
@@ -223,7 +258,8 @@ end of the project.
 >
 > Answer:
 
---- question 9 fill here ---
+
+In our project, we employed both branches and Pull Requests (PRs) as part of our collaborative development process. Each team member had an individual branch, aside from the main branch, where they carried out their work. Notably, one individual assumed the role of project leader, responsible for reviewing and approving code merge requests. This leader also managed conflict resolution and guided the overall direction of the project. This approach ensured that each team member could work on their respective features or fixes independently, and the leader played a crucial role in maintaining code quality, coherence, and alignment with the project's overarching goals.
 
 ### Question 10
 
@@ -238,7 +274,13 @@ end of the project.
 >
 > Answer:
 
---- question 10 fill here ---
+Yes, we used DVC (Data Version Control) to manage data in our project. There were two primary aspects to its implementation:
+
+1. **Integration with Google Drive:** We connected DVC with Google Drive, enabling team members to access and download different versions of data through GitHub. This integration allowed for seamless collaboration and ensured that everyone had access to the correct and consistent data versions.
+
+2. **Connection with Cloud Storage:** Additionally, we linked DVC with Cloud Storage to implement version control for our data stored in the cloud. This integration facilitated tracking changes to data over time, enabling us to roll back to previous versions when needed. It enhanced data reproducibility, collaboration, and overall project transparency.
+
+
 
 ### Question 11
 
@@ -254,7 +296,27 @@ end of the project.
 >
 > Answer:
 
---- question 11 fill here ---
+We have organized our CI into a single file that focuses on conducting unit tests in the `ubuntu-latest` operating system with Python 3.9. The overall process is outlined as follows:
+
+**Triggering Conditions:**
+The workflow is triggered upon pushes or pull requests to the `master` or `main` branches.
+
+**Workflow Name:**
+The workflow is named "Run tests."
+
+**Job Definition:**
+The job is named `build` and is set to run on `ubuntu-latest`.
+
+**Steps Definition:**
+The workflow consists of a series of sequential steps:
+- **Checkout:** This step checks out the code.
+- **Set up Python 3.9:** It configures the environment with Python 3.9.
+- **Install Dependencies:** Dependencies required for the project are installed.
+- **Test with pytest:** The step installs pytest and executes the unit tests.
+- **Github Link** : [CLICK](https://github.com/Yaxin9Luo/MLops_project_Group18)
+
+
+
 
 ## Running code and tracking experiments
 
@@ -273,7 +335,27 @@ end of the project.
 >
 > Answer:
 
---- question 12 fill here ---
+We utilize Hydra for configuring experiments, ensuring that all hyperparameters in the project are accurately documented and can be reported to team members. The project structure follows the example below:
+```
+|--conf
+|  |--main.yaml
+|  |--test_config.yaml
+|  |--epoch
+|     |--epoch.yaml
+|  |--models
+|     |--model.yaml
+```
+
+In this project structure, the `conf` folder contains various configuration files for different aspects, such as `main.yaml` for primary configurations, `test_config.yaml` for testing configurations, `epoch` folder for configurations related to epochs, and `models` folder for configurations related to models.
+
+Here is a simple example of running experiments using Hydra:
+
+```bash
+python train_model.py -m conf/main.yaml
+```
+
+
+
 
 ### Question 13
 
@@ -288,7 +370,11 @@ end of the project.
 >
 > Answer:
 
---- question 13 fill here ---
+We have implemented a series of measures to ensure experiment reproducibility and prevent information loss. Firstly, we use Hydra for configuration to ensure accurate recording of hyperparameters and configuration details.
+
+To prevent information loss, we regularly back up experiment code and data, utilizing version control systems such as Git to track changes in code and configurations. Additionally, we employ data version control practices, ensuring well-defined dataset versions used in experiments, allowing for reproducibility when needed.
+
+In summary, through effective configuration management, controlled randomness, and data version control strategies, we strive to ensure the reproducibility of our experiments, enabling team members to accurately replicate experimental results.
 
 ### Question 14
 
@@ -305,7 +391,19 @@ end of the project.
 >
 > Answer:
 
---- question 14 fill here ---
+In the process of establishing the LFM movie recommendation system, the utilization of WandB allowed me to closely monitor critical metrics for comprehensive evaluation:
+
+1. **Train Loss and Validation Loss:**
+   - **Significance:** Loss serves as a pivotal metric during model training, reflecting the model's efficacy on both training and validation datasets. The continuous tracking of these losses enables a thorough assessment of the model's fitting behavior, ensuring a gradual optimization throughout training while mitigating the risks of overfitting or underfitting.
+
+2. **Train MAE and Validation MAE (Mean Absolute Error):**
+   - **Significance:** MAE, quantifying the average absolute error between predicted and actual values, holds paramount importance. The monitoring of both training and validation MAE provides insights into the model's precision in predicting user ratings for movies. Lower MAE values signify more accurate predictions, thereby enhancing the overall effectiveness of the recommendation system.
+
+By meticulously tracking these metrics through WandB, a holistic understanding of the model's performance across training and validation phases is achieved. This facilitates informed adjustments to model architecture, hyperparameters, and other factors, fostering continual refinement for superior recommendation outcomes. This approach ensures that the LFM movie recommendation system not only optimizes during training but also generalizes well to unseen data, delivering reliable and effective movie recommendations to users.
+
+![loss](figures/q14_1.png)
+![mae](figures/q14_1.png)
+
 
 ### Question 15
 
@@ -320,8 +418,26 @@ end of the project.
 >
 > Answer:
 
---- question 15 fill here ---
+For our project, we developed three Docker images: one for training, one for testing, and one for inference and deployment on Cloud Run.
 
+- **Training Docker Image:**
+  ```bash
+  docker run --name training lfm_trainer:latest
+  ```
+
+- **Test Docker Image:**
+  ```bash
+  docker run --name testing lfm_tester:latest
+  ```
+
+- **Cloud Run Image (no run command included):**
+  ```bash
+  docker build -f cloud_run.dockerfile . -t lfm_app:latest
+  docker tag lfm_app gcr.io/mlopslfm/lfm_app
+  docker push gcr.io/mlopslfm/lfm_app
+  ```
+
+Ensure the images are appropriately built and tagged for deployment. The Cloud Run image is prepared for deployment but lacks the actual "run" command in this context.[DOCKER](https://console.cloud.google.com/gcr/images/mlopslfm?referrer=search&project=mlopslfm&supportedpurview=project)
 ### Question 16
 
 > **When running into bugs while trying to run your experiments, how did you perform debugging? Additionally, did you**
@@ -335,7 +451,19 @@ end of the project.
 >
 > Answer:
 
---- question 16 fill here ---
+During experiments, We employed the following debugging approaches, excluding the use of cProfile due to the project's small scale:
+
+* **Error Messages and Logs:** Recorded errors using logs, carefully analyzed error messages and logs to pinpoint the location and nature of the issue. This initial step helped in understanding the problem's context.
+
+* **Code Inspection:** Examined relevant code sections to identify potential logical errors, typos, or incorrect variable assignments.
+
+* **Print Statements:** Inserted strategic print statements in the code to trace the execution flow and inspect variable values at runtime.
+
+* **Unit Testing:** Implemented or reviewed existing unit tests, ensuring that each component's behavior adhered to expectations. Addressed any failing tests to maintain code correctness.
+
+* **Collaborative Reviews:** Collaborated with team members through code reviews.
+
+These strategies facilitated effective debugging, ensuring errors were identified and resolved efficiently. The cooperative review process further leveraged the collective expertise of the team to enhance code quality.
 
 ## Working in the cloud
 
@@ -352,7 +480,34 @@ end of the project.
 >
 > Answer:
 
---- question 17 fill here ---
+In the project, the following GCP services were utilized:
+
+1. **Compute Engine:**
+   - **Usage:** Created and managed virtual machines (VMs) or instances for various tasks.
+   
+
+2. **Cloud Storage:**
+   - **Usage:** Storage service for datasets and DVC (Data Version Control) integration.
+   - **Important Setting:** Enabled object versioning for data bucket.
+
+3. **Artifact Registry:**
+   - **Usage:** Docker image registry for storing and managing container images.
+   - **Workflow:**
+     - Created Docker images using Cloud Build and Artifact Registry.
+     - Addressed issues related to Cloud Build permissions.
+
+4. **Vertex AI:**
+   - **Usage:** Deployed machine learning models on Vertex AI.
+   - **Workflow:**
+     - Created and deployed models using Docker images and configuration files.
+
+5. **Cloud Run:**
+   - **Usage:** Deployed containerized applications in a serverless environment.
+   - **Commands:**
+     - `docker build -f cloud_run.dockerfile . -t lfm_app:latest`
+     - `docker tag lfm_app gcr.io/mlopslfm/lfm_app`
+     - `docker push gcr.io/mlopslfm/lfm_app`
+
 
 ### Question 18
 
@@ -367,16 +522,19 @@ end of the project.
 >
 > Answer:
 
---- question 18 fill here ---
+Our project relies on the Compute Engine as its foundational service. Specifically, we instantiated an instance named "lfm" to handle diverse tasks within the recommendation system.
+
+We employed the Compute Engine to carry out pivotal operations in our recommendation system. The instance, labeled "lfm," is configured with the following hardware specifications: vCPU (1-2, shared core), Memory (4 GB), and Boot Disk (10 GB, Standard Persistent Disk). To ensure the smooth execution of workflows, we initiated the instance using a custom container that encapsulates our application and its dependencies. This configuration allows us to efficiently manage and scale computational resources, contributing to the robust operation of our recommendation system.
 
 ### Question 19
 
 > **Insert 1-2 images of your GCP bucket, such that we can see what data you have stored in it.**
-> **You can take inspiration from [this figure](figures/bucket.png).**
+> **You can take inspiration from [this figure](/figures/bucket.png).**
 >
 > Answer:
 
---- question 19 fill here ---
+![buckets](reports/figures/q19_1.png)
+
 
 ### Question 20
 
@@ -385,16 +543,16 @@ end of the project.
 >
 > Answer:
 
---- question 20 fill here ---
+![buckets](reports/figures/q20_1.png)
 
 ### Question 21
 
 > **Upload one image of your GCP cloud build history, so we can see the history of the images that have been build in**
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
-> Answer:
 
---- question 21 fill here ---
+![buckets](reports/figures/q21_1.png)
+
 
 ### Question 22
 
@@ -410,7 +568,27 @@ end of the project.
 >
 > Answer:
 
---- question 22 fill here ---
+For deployment, we encapsulated our model into an application using [deployment tool/library]. Initially, we tested local serving of the model successfully, invoking it with a curl command such as:
+
+```bash
+curl -X POST "http://127.0.0.1:8000/lfm_v1/" -H "Content-Type: application/json" -d '{"input_1": [100], "input_2": [100]}'
+```
+
+Additionally, for local deployment with input logging and to monitor data drifting, we utilized `lfm_v2`. This version records each input during inference for subsequent analysis of potential data drift. The invocation of this locally deployed service is done using the following curl command:
+
+```bash
+curl -X POST "http://127.0.0.1:8000/lfm_v2/" -H "Content-Type: application/json" -d '{"input_1": [100], "input_2": [100]}'
+```
+
+By incorporating input logging into the local deployment, we establish a mechanism for tracking and assessing potential data drift, enhancing the robustness of our recommendation system.
+
+For cloud deployment on Google Cloud Run, the service is invoked using:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"input_1": [100], "input_2": [100]}' https://lfm-app-7-hvcr6vbh2a-uc.a.run.app/predict
+```
+
+This allows users to interact with the deployed recommendation model seamlessly, whether locally or in the cloud.
 
 ### Question 23
 
@@ -425,7 +603,11 @@ end of the project.
 >
 > Answer:
 
---- question 23 fill here ---
+In our local deployment of the recommendation system, the model monitoring process was successfully executed with the following workflow:
+
+* **Input Logging:** The recommendation system recorded each input data, specifically features like `input_1` and `input_2`, along with the model's prediction results. This logging was achieved by calling the `add_to_database` function, which appends each input and prediction result to the database.
+
+* **Monitoring Report Generation:** We established an endpoint `/lfm_monitoring/` dedicated to generating monitoring reports. Within this endpoint, various monitoring metrics, such as DataDriftPreset, DataQualityPreset, and TargetDriftPreset, were utilized to run data drift detection. Once the monitoring report was generated, it was saved in HTML format at `./drift/monitoring.html`.
 
 ### Question 24
 
@@ -439,7 +621,7 @@ end of the project.
 >
 > Answer:
 
---- question 24 fill here ---
+ In total $10.22 credits was spend during development, with a major allocation to Networking expenses.
 
 ## Overall discussion of project
 
@@ -474,7 +656,13 @@ end of the project.
 >
 > Answer:
 
---- question 26 fill here ---
+The most significant challenge I faced was the steep learning curve, especially when bridging the gap between theoretical understanding and practical application. A considerable amount of time was devoted to mastering Google Cloud, which proved intricate and often convoluted. The platform's modules demonstrated a high degree of complexity, making it time-intensive to follow tutorials and comprehend the intricate interdependencies between different components. Despite achieving successful deployments, there remained a sense of uncertainty about the detailed processes and interactions within the platform.
+
+A substantial portion of my time and effort went into unraveling the intricacies of Google Cloud. The platform's design sometimes resulted in successful deployments without a comprehensive understanding of the underlying mechanisms, posing challenges for reproducibility and effective troubleshooting.
+
+Among the various components of Google Cloud, deploying models using Google Functions and Google Run demanded a significant investment of time. Debugging was particularly challenging due to the emergence of numerous bugs, requiring thorough investigation and resolution.
+
+In essence, grappling with the complexities of Google Cloud, coupled with challenges in deployment and debugging, constituted the primary hurdles in the learning process, necessitating dedicated efforts to navigate and comprehend the platform effectively.
 
 ### Question 27
 
@@ -490,5 +678,21 @@ end of the project.
 > *All members contributed to code by...*
 >
 > Answer:
+Student s215161:
 
---- question 27 fill here ---
+Set up the initial Cookiecutter project structure and developed Docker containers for training the application.
+Managed and configured Compute Engine and Cloud Storage on GCP, along with integrating DVC.
+Responsible for implementing and testing local deployment of the model, as well as monitoring its performance.
+Student s230027:
+
+Handled the training and deployment of the model in the cloud using Vertex AI and Cloud Run.
+Developed a application for model inference.
+Implemented continuous integration and deployment of the code, including setting up GitHub Actions and Cloud Build.
+Student s230029:
+
+In charge of enforcing code quality and format rules using Python's ruff package.
+Implemented logging of model training and evaluation using Weights & Biases.
+Wrote a readme guide for beginners .
+
+All team members contribute equally to the report.
+
