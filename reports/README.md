@@ -678,21 +678,6 @@ In essence, grappling with the complexities of Google Cloud, coupled with challe
 > *All members contributed to code by...*
 >
 > Answer:
-Student s215161:
 
-Set up the initial Cookiecutter project structure and developed Docker containers for training the application.
-Managed and configured Compute Engine and Cloud Storage on GCP, along with integrating DVC.
-Responsible for implementing and testing local deployment of the model, as well as monitoring its performance.
-Student s230027:
-
-Handled the training and deployment of the model in the cloud using Vertex AI and Cloud Run.
-Developed a application for model inference.
-Implemented continuous integration and deployment of the code, including setting up GitHub Actions and Cloud Build.
-Student s230029:
-
-In charge of enforcing code quality and format rules using Python's ruff package.
-Implemented logging of model training and evaluation using Weights & Biases.
-Wrote a readme guide for beginners .
-
-All team members contribute equally to the report.
+All team members contribute equally.
 
