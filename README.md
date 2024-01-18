@@ -8,7 +8,8 @@ The model SVDModel is a subclass of tf.keras.Model, indicating the use of Tensor
 The SVD Model is designed for a movie recommendation system. It predicts movie ratings based on user and item (movie) interactions.
 
 ## Project flowchart
-![Machine Learning Operations Pipeline](reports/figures/Machine learning operations pipeline.png)
+![Machine Learning Operations Pipeline](reports/figures/Machine%20learning%20operations%20pipeline.png)
+
 
 
 ## How to install
